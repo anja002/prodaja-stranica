@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>domaci</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<a class="logo" href="/"><img src="images/114d0250891eaa4de05685c60aec1d0c-removebg-preview.png" alt="logo"></a>
+		<nav>
+			<ul class="nav__links">
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Projects</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</nav>
+		
+		<p class="menu cta">Menu</p>
+	</header>
+	<div id="mobile__menu" class="overlay">
+		<a class="close">&times;</a>
+		<div class="overlay__content">
+			<a href="#">Services</a>
+			<a href="#">Projects</a>
+			<a href="#">About</a>
+		</div>
+	</div>
+	<script type="text/javascript" src="mobile.js"></script>
+
+	<div id="content-wrapper">
+		
+
+		<div class="column">
+			<img id=featured src="images/1.jpg">
+			<hr>
+			<div id="slide-wrapper" >
+			
+
+				<div id="slider">
+					<img class="thumbnail active" src="images/1.jpg">
+					<img class="thumbnail" src="images/2.jpg">
+					<img class="thumbnail" src="images/3.jpg">
+
+				</div>
+
+			
+			</div>
+		</div>
+
+		<div class="column">
+			<h1>Repair Business Toolkit</h1>
+			<hr>
+			<h3>$299.99</h3>
+
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+			<input value=1 type="number">
+			<a class="btn btn-dark" href="#">Add to Cart</a>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		let thumbnails = document.getElementsByClassName('thumbnail')
+
+		let activeImages = document.getElementsByClassName('active')
+
+		for (var i=0; i < thumbnails.length; i++){
+
+			thumbnails[i].addEventListener('mouseover', function(){
+				console.log(activeImages)
+				
+				if (activeImages.length > 0){
+					activeImages[0].classList.remove('active')
+				}
+				
+
+				this.classList.add('active')
+				document.getElementById('featured').src = this.src
+			})
+		}
+
+
+		let buttonRight = document.getElementById('slideRight');
+		let buttonLeft = document.getElementById('slideLeft');
+
+		buttonLeft.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft -= 180
+		})
+
+		buttonRight.addEventListener('click', function(){
+			document.getElementById('slider').scrollLeft += 180
+		})
+
+
+	</script>
+
+</body>
+</html>
